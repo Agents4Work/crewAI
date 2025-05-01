@@ -342,9 +342,9 @@ class Crew(FlowTrackable, BaseModel):
                     isinstance(k, BaseKnowledgeSource) for k in self.knowledge_sources
                 ):
                     self.knowledge = Knowledge(
-                        sources=self.knowledge_sources,
-                        embedder=self.embedder,
                         collection_name="crew",
+                        sources=self.knowledge_sources,
+                        config=self.embedder,
                     )
                     self.knowledge.add_sources()
 

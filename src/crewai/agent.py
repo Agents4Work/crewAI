@@ -156,9 +156,9 @@ class Agent(BaseAgent):
                     isinstance(k, BaseKnowledgeSource) for k in self.knowledge_sources
                 ):
                     self.knowledge = Knowledge(
-                        sources=self.knowledge_sources,
-                        embedder=self.embedder,
                         collection_name=self.role,
+                        sources=self.knowledge_sources,
+                        config=self.embedder,
                         storage=self.knowledge_storage or None,
                     )
         except (TypeError, ValueError) as e:
