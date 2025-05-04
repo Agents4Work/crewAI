@@ -17,14 +17,10 @@ Example
 
 import ast
 import inspect
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union
 
-from .utils import (
-    build_ancestor_dict,
-    build_parent_children_dict,
-    get_child_index,
-    is_ancestor,
-)
+from .utils import (build_ancestor_dict, build_parent_children_dict,
+                    get_child_index, is_ancestor)
 
 
 def method_calls_crew(method: Any) -> bool:
@@ -56,6 +52,7 @@ def method_calls_crew(method: Any) -> bool:
 
     class CrewCallVisitor(ast.NodeVisitor):
         """AST visitor to detect .crew() method calls."""
+
         def __init__(self):
             self.found = False
 
@@ -74,7 +71,7 @@ def add_nodes_to_network(
     net: Any,
     flow: Any,
     node_positions: Dict[str, Tuple[float, float]],
-    node_styles: Dict[str, Dict[str, Any]]
+    node_styles: Dict[str, Dict[str, Any]],
 ) -> None:
     """
     Add nodes to the network visualization with appropriate styling.
@@ -98,6 +95,7 @@ def add_nodes_to_network(
     - Crew methods
     - Regular methods
     """
+
     def human_friendly_label(method_name):
         return method_name.replace("_", " ").title()
 
@@ -140,7 +138,7 @@ def compute_positions(
     flow: Any,
     node_levels: Dict[str, int],
     y_spacing: float = 150,
-    x_spacing: float = 150
+    x_spacing: float = 150,
 ) -> Dict[str, Tuple[float, float]]:
     """
     Compute the (x, y) positions for each node in the flow graph.
@@ -181,7 +179,7 @@ def add_edges(
     net: Any,
     flow: Any,
     node_positions: Dict[str, Tuple[float, float]],
-    colors: Dict[str, str]
+    colors: Dict[str, str],
 ) -> None:
     edge_smooth: Dict[str, Union[str, float]] = {"type": "continuous"}  # Default value
     """

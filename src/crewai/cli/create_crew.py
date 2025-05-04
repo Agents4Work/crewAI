@@ -3,13 +3,9 @@ import sys
 from pathlib import Path
 
 import click
-
 from crewai.cli.constants import ENV_VARS, MODELS
-from crewai.cli.provider import (
-    get_provider_data,
-    select_model,
-    select_provider,
-)
+from crewai.cli.provider import (get_provider_data, select_model,
+                                 select_provider)
 from crewai.cli.utils import copy_template, load_env_vars, write_env_file
 
 

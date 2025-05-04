@@ -5,15 +5,14 @@ from unittest import mock
 from unittest.mock import patch
 
 import pytest
-
 from crewai import Agent, Crew, Task
 from crewai.agents.cache import CacheHandler
 from crewai.agents.crew_agent_executor import AgentFinish, CrewAgentExecutor
-from crewai.agents.parser import CrewAgentParser, OutputParserException
 from crewai.knowledge.knowledge import Knowledge
 from crewai.knowledge.knowledge_config import KnowledgeConfig
 from crewai.knowledge.source.base_knowledge_source import BaseKnowledgeSource
-from crewai.knowledge.source.string_knowledge_source import StringKnowledgeSource
+from crewai.knowledge.source.string_knowledge_source import \
+    StringKnowledgeSource
 from crewai.llm import LLM
 from crewai.tools import tool
 from crewai.tools.tool_calling import InstructorToolCalling
@@ -306,9 +305,7 @@ def test_cache_hitting():
     def handle_tool_end(source, event):
         received_events.append(event)
 
-    with (
-        patch.object(CacheHandler, "read") as read,
-    ):
+    with (patch.object(CacheHandler, "read") as read,):
         read.return_value = "0"
         task = Task(
             description="What is 2 times 6? Ignore correctness and just return the result of the multiplication tool, you must use the tool.",
@@ -894,7 +891,6 @@ def test_agent_function_calling_llm():
     from unittest.mock import patch
 
     import instructor
-
     from crewai.tools.tool_usage import ToolUsage
 
     with (
@@ -1840,10 +1836,9 @@ def test_litellm_auth_error_handling():
 
 def test_crew_agent_executor_litellm_auth_error():
     """Test that CrewAgentExecutor handles LiteLLM authentication errors by raising them."""
-    from litellm.exceptions import AuthenticationError
-
     from crewai.agents.tools_handler import ToolsHandler
     from crewai.utilities import Printer
+    from litellm.exceptions import AuthenticationError
 
     # Create an agent and executor
     agent = Agent(

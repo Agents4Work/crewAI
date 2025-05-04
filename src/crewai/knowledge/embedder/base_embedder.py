@@ -20,7 +20,6 @@ class BaseEmbedder(ABC):
         Returns:
             Array of embeddings
         """
-        pass
 
     @abstractmethod
     def embed_texts(self, texts: List[str]) -> np.ndarray:
@@ -33,7 +32,6 @@ class BaseEmbedder(ABC):
         Returns:
             Array of embeddings
         """
-        pass
 
     @abstractmethod
     def embed_text(self, text: str) -> np.ndarray:
@@ -46,10 +44,8 @@ class BaseEmbedder(ABC):
         Returns:
             Embedding array
         """
-        pass
 
     @property
     @abstractmethod
     def dimension(self) -> int:
         """Get the dimension of the embeddings"""
-        pass

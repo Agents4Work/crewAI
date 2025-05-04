@@ -1,12 +1,10 @@
 import subprocess
 from enum import Enum
-from typing import List, Optional
 
 import click
-from packaging import version
-
 from crewai.cli.utils import read_toml
 from crewai.cli.version import get_crewai_version
+from packaging import version
 
 
 class CrewType(Enum):

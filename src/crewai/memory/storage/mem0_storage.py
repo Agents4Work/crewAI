@@ -1,9 +1,8 @@
 import os
 from typing import Any, Dict, List
 
-from mem0 import Memory, MemoryClient
-
 from crewai.memory.storage.interface import Storage
+from mem0 import Memory, MemoryClient
 
 
 class Mem0Storage(Storage):

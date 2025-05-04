@@ -1,9 +1,8 @@
 import json
 from typing import Any, Dict, Optional
 
-from pydantic import BaseModel, Field, model_validator
-
 from crewai.tasks.output_format import OutputFormat
+from pydantic import BaseModel, Field, model_validator
 
 
 class TaskOutput(BaseModel):

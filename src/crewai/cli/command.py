@@ -1,10 +1,9 @@
 import requests
-from requests.exceptions import JSONDecodeError
-from rich.console import Console
-
 from crewai.cli.authentication.token import get_auth_token
 from crewai.cli.plus_api import PlusAPI
 from crewai.telemetry.telemetry import Telemetry
+from requests.exceptions import JSONDecodeError
+from rich.console import Console
 
 console = Console()
 

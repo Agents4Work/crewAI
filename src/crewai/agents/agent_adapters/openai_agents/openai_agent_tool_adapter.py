@@ -2,7 +2,6 @@ import inspect
 from typing import Any, List, Optional
 
 from agents import FunctionTool, Tool
-
 from crewai.agents.agent_adapters.base_tool_adapter import BaseToolAdapter
 from crewai.tools import BaseTool
 

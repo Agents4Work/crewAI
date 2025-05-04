@@ -4,18 +4,8 @@ from copy import copy as shallow_copy
 from hashlib import md5
 from typing import Any, Callable, Dict, List, Optional, TypeVar
 
-from pydantic import (
-    UUID4,
-    BaseModel,
-    Field,
-    InstanceOf,
-    PrivateAttr,
-    field_validator,
-    model_validator,
-)
-from pydantic_core import PydanticCustomError
-
-from crewai.agents.agent_builder.utilities.base_token_process import TokenProcess
+from crewai.agents.agent_builder.utilities.base_token_process import \
+    TokenProcess
 from crewai.agents.cache.cache_handler import CacheHandler
 from crewai.agents.tools_handler import ToolsHandler
 from crewai.knowledge.knowledge import Knowledge
@@ -25,8 +15,10 @@ from crewai.security.security_config import SecurityConfig
 from crewai.tools.base_tool import BaseTool, Tool
 from crewai.utilities import I18N, Logger, RPMController
 from crewai.utilities.config import process_config
-from crewai.utilities.converter import Converter
 from crewai.utilities.string_utils import interpolate_only
+from pydantic import (UUID4, BaseModel, Field, InstanceOf, PrivateAttr,
+                      field_validator, model_validator)
+from pydantic_core import PydanticCustomError
 
 T = TypeVar("T", bound="BaseAgent")
 
@@ -264,7 +256,6 @@ class BaseAgent(ABC, BaseModel):
     @abstractmethod
     def get_delegation_tools(self, agents: List["BaseAgent"]) -> List[BaseTool]:
         """Set the task tools that init BaseAgenTools class."""
-        pass
 
     def copy(self: T) -> T:  # type: ignore # Signature of "copy" incompatible with supertype "BaseModel"
         """Create a deep copy of the Agent."""

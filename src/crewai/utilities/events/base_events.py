@@ -1,9 +1,8 @@
 from datetime import datetime
 from typing import Any, Dict, Optional
 
-from pydantic import BaseModel, Field
-
 from crewai.utilities.serialization import to_serializable
+from pydantic import BaseModel, Field
 
 
 class BaseEvent(BaseModel):

@@ -2,11 +2,11 @@ import json
 import re
 from typing import Any, Optional, Type, Union, get_args, get_origin
 
-from pydantic import BaseModel, ValidationError
-
-from crewai.agents.agent_builder.utilities.base_output_converter import OutputConverter
+from crewai.agents.agent_builder.utilities.base_output_converter import \
+    OutputConverter
 from crewai.utilities.printer import Printer
 from crewai.utilities.pydantic_schema_parser import PydanticSchemaParser
+from pydantic import BaseModel, ValidationError
 
 
 class ConverterError(Exception):
@@ -100,9 +100,8 @@ class Converter(OutputConverter):
 
     def _convert_with_instructions(self):
         """Create a chain."""
-        from crewai.utilities.crew_pydantic_output_parser import (
-            CrewPydanticOutputParser,
-        )
+        from crewai.utilities.crew_pydantic_output_parser import \
+            CrewPydanticOutputParser
 
         parser = CrewPydanticOutputParser(pydantic_object=self.model)
         result = self.llm.call(

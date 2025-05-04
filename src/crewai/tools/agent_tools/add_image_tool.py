@@ -1,9 +1,8 @@
-from typing import Dict, Optional, Union
-
-from pydantic import BaseModel, Field
+from typing import Optional
 
 from crewai.tools.base_tool import BaseTool
 from crewai.utilities import I18N
+from pydantic import BaseModel, Field
 
 i18n = I18N()
 

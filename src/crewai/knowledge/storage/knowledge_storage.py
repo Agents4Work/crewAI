@@ -11,8 +11,8 @@ import chromadb.errors
 from chromadb.api import ClientAPI
 from chromadb.api.types import OneOrMany
 from chromadb.config import Settings
-
-from crewai.knowledge.storage.base_knowledge_storage import BaseKnowledgeStorage
+from crewai.knowledge.storage.base_knowledge_storage import \
+    BaseKnowledgeStorage
 from crewai.utilities import EmbeddingConfigurator
 from crewai.utilities.chromadb import sanitize_collection_name
 from crewai.utilities.constants import KNOWLEDGE_DIRECTORY
@@ -181,9 +181,8 @@ class KnowledgeStorage(BaseKnowledgeStorage):
             raise
 
     def _create_default_embedding_function(self):
-        from chromadb.utils.embedding_functions.openai_embedding_function import (
-            OpenAIEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.openai_embedding_function import \
+            OpenAIEmbeddingFunction
 
         return OpenAIEmbeddingFunction(
             api_key=os.getenv("OPENAI_API_KEY"), model_name="text-embedding-3-small"

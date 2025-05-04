@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 from random import randint
 
-from pydantic import BaseModel
-
 from crewai.flow import Flow, listen, start
-
+from pydantic import BaseModel
 from {{folder_name}}.crews.poem_crew.poem_crew import PoemCrew
 
 

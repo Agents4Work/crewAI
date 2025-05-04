@@ -1,34 +1,28 @@
-import json
-import re
 from typing import Any, Callable, Dict, List, Optional, Union
 
 from crewai.agents.agent_builder.base_agent import BaseAgent
-from crewai.agents.agent_builder.base_agent_executor_mixin import CrewAgentExecutorMixin
-from crewai.agents.parser import (
-    AgentAction,
-    AgentFinish,
-    OutputParserException,
-)
+from crewai.agents.agent_builder.base_agent_executor_mixin import \
+    CrewAgentExecutorMixin
+from crewai.agents.parser import (AgentAction, AgentFinish,
+                                  OutputParserException)
 from crewai.agents.tools_handler import ToolsHandler
 from crewai.llm import BaseLLM
 from crewai.tools.base_tool import BaseTool
 from crewai.tools.structured_tool import CrewStructuredTool
 from crewai.tools.tool_types import ToolResult
 from crewai.utilities import I18N, Printer
-from crewai.utilities.agent_utils import (
-    enforce_rpm_limit,
-    format_message_for_llm,
-    get_llm_response,
-    handle_agent_action_core,
-    handle_context_length,
-    handle_max_iterations_exceeded,
-    handle_output_parser_exception,
-    handle_unknown_error,
-    has_reached_max_iterations,
-    is_context_length_exceeded,
-    process_llm_response,
-    show_agent_logs,
-)
+from crewai.utilities.agent_utils import (enforce_rpm_limit,
+                                          format_message_for_llm,
+                                          get_llm_response,
+                                          handle_agent_action_core,
+                                          handle_context_length,
+                                          handle_max_iterations_exceeded,
+                                          handle_output_parser_exception,
+                                          handle_unknown_error,
+                                          has_reached_max_iterations,
+                                          is_context_length_exceeded,
+                                          process_llm_response,
+                                          show_agent_logs)
 from crewai.utilities.constants import MAX_LLM_RETRY, TRAINING_DATA_FILE
 from crewai.utilities.logger import Logger
 from crewai.utilities.tool_utils import execute_tool_and_check_finality

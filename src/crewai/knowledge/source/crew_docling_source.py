@@ -6,18 +6,18 @@ try:
     from docling.datamodel.base_models import InputFormat
     from docling.document_converter import DocumentConverter
     from docling.exceptions import ConversionError
-    from docling_core.transforms.chunker.hierarchical_chunker import HierarchicalChunker
+    from docling_core.transforms.chunker.hierarchical_chunker import \
+        HierarchicalChunker
     from docling_core.types.doc.document import DoclingDocument
 
     DOCLING_AVAILABLE = True
 except ImportError:
     DOCLING_AVAILABLE = False
 
-from pydantic import Field
-
 from crewai.knowledge.source.base_knowledge_source import BaseKnowledgeSource
 from crewai.utilities.constants import KNOWLEDGE_DIRECTORY
 from crewai.utilities.logger import Logger
+from pydantic import Field
 
 
 class CrewDoclingSource(BaseKnowledgeSource):

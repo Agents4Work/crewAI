@@ -26,7 +26,6 @@ class BaseToolAdapter(ABC):
         Args:
             tools: List of BaseTool instances to be configured and converted
         """
-        pass
 
     def tools(self) -> List[Any]:
         """Return all converted tools."""

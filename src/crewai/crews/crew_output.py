@@ -1,11 +1,10 @@
 import json
 from typing import Any, Dict, Optional
 
-from pydantic import BaseModel, Field
-
 from crewai.tasks.output_format import OutputFormat
 from crewai.tasks.task_output import TaskOutput
 from crewai.types.usage_metrics import UsageMetrics
+from pydantic import BaseModel, Field
 
 
 class CrewOutput(BaseModel):

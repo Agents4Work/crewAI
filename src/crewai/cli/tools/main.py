@@ -5,18 +5,13 @@ import tempfile
 from pathlib import Path
 
 import click
-from rich.console import Console
-
 from crewai.cli import git
 from crewai.cli.command import BaseCommand, PlusAPIMixin
 from crewai.cli.config import Settings
-from crewai.cli.utils import (
-    get_project_description,
-    get_project_name,
-    get_project_version,
-    tree_copy,
-    tree_find_and_replace,
-)
+from crewai.cli.utils import (get_project_description, get_project_name,
+                              get_project_version, tree_copy,
+                              tree_find_and_replace)
+from rich.console import Console
 
 console = Console()
 

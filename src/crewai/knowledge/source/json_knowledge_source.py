@@ -2,7 +2,8 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List
 
-from crewai.knowledge.source.base_file_knowledge_source import BaseFileKnowledgeSource
+from crewai.knowledge.source.base_file_knowledge_source import \
+    BaseFileKnowledgeSource
 
 
 class JSONKnowledgeSource(BaseFileKnowledgeSource):

@@ -1,7 +1,6 @@
 from pathlib import Path
 
 import click
-
 from crewai.telemetry import Telemetry
 
 

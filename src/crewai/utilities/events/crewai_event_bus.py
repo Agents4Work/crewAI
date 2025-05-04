@@ -3,7 +3,6 @@ from contextlib import contextmanager
 from typing import Any, Callable, Dict, List, Type, TypeVar, cast
 
 from blinker import Signal
-
 from crewai.utilities.events.base_events import BaseEvent
 from crewai.utilities.events.event_types import EventTypes
 

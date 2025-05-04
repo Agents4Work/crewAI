@@ -1,14 +1,13 @@
 from unittest.mock import MagicMock, patch
 
 import pytest
-from mem0.memory.main import Memory
-
 from crewai.agent import Agent
 from crewai.crew import Crew, Process
 from crewai.memory.external.external_memory import ExternalMemory
 from crewai.memory.external.external_memory_item import ExternalMemoryItem
 from crewai.memory.storage.interface import Storage
 from crewai.task import Task
+from mem0.memory.main import Memory
 
 
 @pytest.fixture

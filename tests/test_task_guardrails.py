@@ -1,10 +1,14 @@
 from unittest.mock import ANY, Mock, patch
 
 import pytest
+<<<<<<< HEAD
 
 from crewai import Agent, Task
 from crewai.llm import LLM
 from crewai.tasks.llm_guardrail import LLMGuardrail
+=======
+from crewai.task import Task
+>>>>>>> 11ffc701 (Local changes to CrewAI submodule)
 from crewai.tasks.task_output import TaskOutput
 from crewai.utilities.events import (
     LLMGuardrailCompletedEvent,

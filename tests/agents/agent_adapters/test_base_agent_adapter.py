@@ -1,12 +1,11 @@
 from typing import Any, Dict, List, Optional
 
 import pytest
-from pydantic import BaseModel
-
 from crewai.agent import BaseAgent
 from crewai.agents.agent_adapters.base_agent_adapter import BaseAgentAdapter
 from crewai.tools import BaseTool
 from crewai.utilities.token_counter_callback import TokenProcess
+from pydantic import BaseModel
 
 
 # Concrete implementation for testing
@@ -95,7 +94,6 @@ def test_configure_structured_output_method_exists():
     adapter.configure_structured_output(structured_output)
     # Add assertions here if configure_structured_output modifies state
     # For now, just ensuring it runs without error is sufficient
-    pass
 
 
 def test_base_agent_adapter_inherits_base_agent():

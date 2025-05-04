@@ -1,14 +1,9 @@
-import os
 from unittest.mock import MagicMock, patch
 
 import pytest
+from crewai.memory.storage.mem0_storage import Mem0Storage
 from mem0.client.main import MemoryClient
 from mem0.memory.main import Memory
-
-from crewai.agent import Agent
-from crewai.crew import Crew
-from crewai.memory.storage.mem0_storage import Mem0Storage
-from crewai.task import Task
 
 
 # Define the class (if not already defined)
@@ -30,7 +25,9 @@ def mem0_storage_with_mocked_config(mock_mem0_memory):
     """Fixture to create a Mem0Storage instance with mocked dependencies"""
 
     # Patch the Memory class to return our mock
-    with patch("mem0.memory.main.Memory.from_config", return_value=mock_mem0_memory) as mock_from_config:
+    with patch(
+        "mem0.memory.main.Memory.from_config", return_value=mock_mem0_memory
+    ) as mock_from_config:
         config = {
             "vector_store": {
                 "provider": "mock_vector_store",

@@ -1,10 +1,7 @@
-import os
 from datetime import datetime
 from unittest.mock import Mock, patch
 
 import pytest
-from pydantic import Field
-
 from crewai.agent import Agent
 from crewai.agents.crew_agent_executor import CrewAgentExecutor
 from crewai.crew import Crew
@@ -12,43 +9,31 @@ from crewai.flow.flow import Flow, listen, start
 from crewai.llm import LLM
 from crewai.task import Task
 from crewai.tools.base_tool import BaseTool
-from crewai.utilities.events.agent_events import (
-    AgentExecutionCompletedEvent,
-    AgentExecutionErrorEvent,
-    AgentExecutionStartedEvent,
-)
-from crewai.utilities.events.crew_events import (
-    CrewKickoffCompletedEvent,
-    CrewKickoffFailedEvent,
-    CrewKickoffStartedEvent,
-    CrewTestCompletedEvent,
-    CrewTestStartedEvent,
-)
+from crewai.utilities.events.agent_events import (AgentExecutionCompletedEvent,
+                                                  AgentExecutionErrorEvent,
+                                                  AgentExecutionStartedEvent)
+from crewai.utilities.events.crew_events import (CrewKickoffCompletedEvent,
+                                                 CrewKickoffFailedEvent,
+                                                 CrewKickoffStartedEvent,
+                                                 CrewTestCompletedEvent,
+                                                 CrewTestStartedEvent)
 from crewai.utilities.events.crewai_event_bus import crewai_event_bus
 from crewai.utilities.events.event_listener import EventListener
 from crewai.utilities.events.event_types import ToolUsageFinishedEvent
-from crewai.utilities.events.flow_events import (
-    FlowCreatedEvent,
-    FlowFinishedEvent,
-    FlowStartedEvent,
-    MethodExecutionFailedEvent,
-    MethodExecutionStartedEvent,
-)
-from crewai.utilities.events.llm_events import (
-    LLMCallCompletedEvent,
-    LLMCallFailedEvent,
-    LLMCallStartedEvent,
-    LLMCallType,
-    LLMStreamChunkEvent,
-)
-from crewai.utilities.events.task_events import (
-    TaskCompletedEvent,
-    TaskFailedEvent,
-    TaskStartedEvent,
-)
-from crewai.utilities.events.tool_usage_events import (
-    ToolUsageErrorEvent,
-)
+from crewai.utilities.events.flow_events import (FlowCreatedEvent,
+                                                 FlowFinishedEvent,
+                                                 FlowStartedEvent,
+                                                 MethodExecutionFailedEvent,
+                                                 MethodExecutionStartedEvent)
+from crewai.utilities.events.llm_events import (LLMCallCompletedEvent,
+                                                LLMCallFailedEvent,
+                                                LLMCallStartedEvent,
+                                                LLMStreamChunkEvent)
+from crewai.utilities.events.task_events import (TaskCompletedEvent,
+                                                 TaskFailedEvent,
+                                                 TaskStartedEvent)
+from crewai.utilities.events.tool_usage_events import ToolUsageErrorEvent
+from pydantic import Field
 
 
 @pytest.fixture(scope="module")

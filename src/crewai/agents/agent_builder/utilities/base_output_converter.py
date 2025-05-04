@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any, Optional
+from typing import Any
 
 from pydantic import BaseModel, Field
 
@@ -33,9 +33,7 @@ class OutputConverter(BaseModel, ABC):
     @abstractmethod
     def to_pydantic(self, current_attempt=1) -> BaseModel:
         """Convert text to pydantic."""
-        pass
 
     @abstractmethod
     def to_json(self, current_attempt=1) -> dict:
         """Convert text to json."""
-        pass

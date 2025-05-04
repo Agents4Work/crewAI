@@ -1,9 +1,7 @@
-from typing import Any, Dict, List, Optional, Set, Tuple, Union
-
-import pytest
-from pydantic import BaseModel, Field
+from typing import Dict, List, Optional, Union
 
 from crewai.utilities.pydantic_schema_parser import PydanticSchemaParser
+from pydantic import BaseModel
 
 
 def test_simple_model():

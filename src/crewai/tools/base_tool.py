@@ -1,19 +1,12 @@
 import asyncio
-import warnings
 from abc import ABC, abstractmethod
 from inspect import signature
 from typing import Any, Callable, Type, get_args, get_origin
 
-from pydantic import (
-    BaseModel,
-    ConfigDict,
-    Field,
-    create_model,
-    field_validator,
-)
-from pydantic import BaseModel as PydanticBaseModel
-
 from crewai.tools.structured_tool import CrewStructuredTool
+from pydantic import BaseModel
+from pydantic import BaseModel as PydanticBaseModel
+from pydantic import ConfigDict, Field, create_model, field_validator
 
 
 class BaseTool(BaseModel, ABC):
@@ -254,7 +247,7 @@ def to_langchain(
 def tool(*args, result_as_answer=False):
     """
     Decorator to create a tool from a function.
-    
+
     Args:
         *args: Positional arguments, either the function to decorate or the tool name.
         result_as_answer: Flag to indicate if the tool result should be used as the final agent answer.

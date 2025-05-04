@@ -1,10 +1,10 @@
 import warnings
 from typing import Any, Dict, Optional
 
+from crewai.agents.agent_builder.utilities.base_token_process import \
+    TokenProcess
 from litellm.integrations.custom_logger import CustomLogger
 from litellm.types.utils import Usage
-
-from crewai.agents.agent_builder.utilities.base_token_process import TokenProcess
 
 
 class TokenCalcHandler(CustomLogger):

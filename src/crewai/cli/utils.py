@@ -7,11 +7,13 @@ from typing import Any, Dict, List, get_type_hints
 
 import click
 import tomli
-from rich.console import Console
-
 from crewai.cli.constants import ENV_VARS
 from crewai.crew import Crew
+<<<<<<< HEAD
 from crewai.flow import Flow
+=======
+from rich.console import Console
+>>>>>>> 11ffc701 (Local changes to CrewAI submodule)
 
 if sys.version_info >= (3, 11):
     import tomllib

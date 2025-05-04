@@ -3,12 +3,8 @@ import re
 from typing import Any, Callable, Dict, List, Optional, Sequence, Union
 
 from crewai.agents.parser import (
-    FINAL_ANSWER_AND_PARSABLE_ACTION_ERROR_MESSAGE,
-    AgentAction,
-    AgentFinish,
-    CrewAgentParser,
-    OutputParserException,
-)
+    FINAL_ANSWER_AND_PARSABLE_ACTION_ERROR_MESSAGE, AgentAction, AgentFinish,
+    CrewAgentParser, OutputParserException)
 from crewai.llm import LLM
 from crewai.llms.base_llm import BaseLLM
 from crewai.tools import BaseTool as CrewAITool
@@ -16,9 +12,8 @@ from crewai.tools.base_tool import BaseTool
 from crewai.tools.structured_tool import CrewStructuredTool
 from crewai.tools.tool_types import ToolResult
 from crewai.utilities import I18N, Printer
-from crewai.utilities.exceptions.context_window_exceeding_exception import (
-    LLMContextLengthExceededException,
-)
+from crewai.utilities.exceptions.context_window_exceeding_exception import \
+    LLMContextLengthExceededException
 
 
 def parse_tools(tools: List[BaseTool]) -> List[CrewStructuredTool]:

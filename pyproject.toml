@@ -47,7 +47,7 @@ Repository = "https://github.com/crewAIInc/crewAI"
 [project.optional-dependencies]
 tools = ["crewai-tools~=0.42.2"]
 embeddings = [
-    "tiktoken~=0.7.0"
+    # "tiktoken~=0.7.0"
 ]
 agentops = ["agentops>=0.3.0"]
 fastembed = ["fastembed>=0.4.1"]

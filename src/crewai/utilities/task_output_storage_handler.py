@@ -1,17 +1,17 @@
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel, Field
-
-from crewai.memory.storage.kickoff_task_outputs_storage import (
-    KickoffTaskOutputsSQLiteStorage,
-)
+from crewai.memory.storage.kickoff_task_outputs_storage import \
+    KickoffTaskOutputsSQLiteStorage
 from crewai.task import Task
+from pydantic import BaseModel, Field
 
 """Handles storage and retrieval of task execution outputs."""
 
+
 class ExecutionLog(BaseModel):
     """Represents a log entry for task execution."""
+
     task_id: str
     expected_output: Optional[str] = None
     output: Dict[str, Any]
@@ -25,6 +25,7 @@ class ExecutionLog(BaseModel):
 
 
 """Manages storage and retrieval of task outputs."""
+
 
 class TaskOutputStorageHandler:
     def __init__(self) -> None:

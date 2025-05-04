@@ -1,19 +1,15 @@
-from typing import Optional
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
-from pydantic import BaseModel
-
 from crewai.agent import Agent
-from crewai.knowledge.source.string_knowledge_source import StringKnowledgeSource
+from crewai.knowledge.source.string_knowledge_source import \
+    StringKnowledgeSource
 from crewai.task import Task
 from crewai.tasks.task_output import TaskOutput
 from crewai.tools.base_tool import BaseTool
-from crewai.utilities.planning_handler import (
-    CrewPlanner,
-    PlannerTaskPydanticOutput,
-    PlanPerTask,
-)
+from crewai.utilities.planning_handler import (CrewPlanner,
+                                               PlannerTaskPydanticOutput,
+                                               PlanPerTask)
 
 
 class InternalCrewPlanner:
@@ -100,7 +96,7 @@ class InternalCrewPlanner:
         # Knowledge field should not be present when empty
         assert '"agent_knowledge"' not in tasks_summary
 
-    @patch('crewai.knowledge.storage.knowledge_storage.chromadb')
+    @patch("crewai.knowledge.storage.knowledge_storage.chromadb")
     def test_create_tasks_summary_with_knowledge_and_tools(self, mock_chroma):
         """Test task summary generation with both knowledge and tools present."""
         # Mock ChromaDB collection
@@ -146,8 +142,8 @@ class InternalCrewPlanner:
                 tools=[tool1, tool2],
                 knowledge_sources=[
                     StringKnowledgeSource(content="Test knowledge content")
-                ]
-            )
+                ],
+            ),
         )
 
         # Create planner with the new task

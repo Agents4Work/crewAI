@@ -1,10 +1,9 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional
 
-from pydantic import PrivateAttr
-
 from crewai.agent import BaseAgent
 from crewai.tools import BaseTool
+from pydantic import PrivateAttr
 
 
 class BaseAgentAdapter(BaseAgent, ABC):
@@ -31,7 +30,6 @@ class BaseAgentAdapter(BaseAgent, ABC):
         Args:
             tools: Optional list of BaseTool instances to be configured
         """
-        pass
 
     def configure_structured_output(self, structured_output: Any) -> None:
         """Configure the structured output for the specific agent implementation.
@@ -39,4 +37,3 @@ class BaseAgentAdapter(BaseAgent, ABC):
         Args:
             structured_output: The structured output to be configured
         """
-        pass

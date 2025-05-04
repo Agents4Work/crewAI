@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any, Callable, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 
 
 class BaseLLM(ABC):
@@ -71,7 +71,6 @@ class BaseLLM(ABC):
             TimeoutError: If the LLM request times out.
             RuntimeError: If the LLM request fails for other reasons.
         """
-        pass
 
     def supports_stop_words(self) -> bool:
         """Check if the LLM supports stop words.

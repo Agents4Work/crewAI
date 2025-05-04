@@ -1,8 +1,7 @@
-from typing import Any, List
+from typing import List
 from unittest.mock import Mock
 
 import pytest
-
 from crewai.agents.agent_adapters.base_tool_adapter import BaseToolAdapter
 from crewai.tools.base_tool import BaseTool
 

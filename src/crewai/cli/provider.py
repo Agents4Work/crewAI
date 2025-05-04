@@ -5,7 +5,6 @@ from pathlib import Path
 
 import click
 import requests
-
 from crewai.cli.constants import JSON_URL, MODELS, PROVIDERS
 
 

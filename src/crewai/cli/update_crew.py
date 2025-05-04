@@ -2,7 +2,6 @@ import os
 import shutil
 
 import tomli_w
-
 from crewai.cli.utils import read_toml
 
 

@@ -3,7 +3,6 @@ from typing import Optional
 from urllib.parse import urljoin
 
 import requests
-
 from crewai.cli.version import get_crewai_version
 
 

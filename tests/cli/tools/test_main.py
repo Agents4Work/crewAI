@@ -6,11 +6,15 @@ from contextlib import contextmanager
 from unittest import mock
 from unittest.mock import MagicMock, patch
 
+<<<<<<< HEAD
 import pytest
 from pytest import raises
 
 from crewai.cli.authentication.utils import TokenManager
+=======
+>>>>>>> 11ffc701 (Local changes to CrewAI submodule)
 from crewai.cli.tools.main import ToolCommand
+from pytest import raises
 
 
 @contextmanager

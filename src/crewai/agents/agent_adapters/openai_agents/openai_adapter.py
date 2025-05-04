@@ -1,21 +1,17 @@
 from typing import Any, List, Optional
 
-from pydantic import Field, PrivateAttr
-
 from crewai.agents.agent_adapters.base_agent_adapter import BaseAgentAdapter
-from crewai.agents.agent_adapters.openai_agents.structured_output_converter import (
-    OpenAIConverterAdapter,
-)
+from crewai.agents.agent_adapters.openai_agents.structured_output_converter import \
+    OpenAIConverterAdapter
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.tools import BaseTool
 from crewai.tools.agent_tools.agent_tools import AgentTools
 from crewai.utilities import Logger
 from crewai.utilities.events import crewai_event_bus
-from crewai.utilities.events.agent_events import (
-    AgentExecutionCompletedEvent,
-    AgentExecutionErrorEvent,
-    AgentExecutionStartedEvent,
-)
+from crewai.utilities.events.agent_events import (AgentExecutionCompletedEvent,
+                                                  AgentExecutionErrorEvent,
+                                                  AgentExecutionStartedEvent)
+from pydantic import Field, PrivateAttr
 
 try:
     from agents import Agent as OpenAIAgent  # type: ignore

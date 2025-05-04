@@ -2,37 +2,23 @@ import asyncio
 import copy
 import inspect
 import logging
-from typing import (
-    Any,
-    Callable,
-    Dict,
-    Generic,
-    List,
-    Optional,
-    Set,
-    Type,
-    TypeVar,
-    Union,
-    cast,
-)
+from typing import (Any, Callable, Dict, Generic, List, Optional, Set, Type,
+                    TypeVar, Union, cast)
 from uuid import uuid4
-
-from pydantic import BaseModel, Field, ValidationError
 
 from crewai.flow.flow_visualizer import plot_flow
 from crewai.flow.persistence.base import FlowPersistence
 from crewai.flow.utils import get_possible_return_constants
 from crewai.utilities.events.crewai_event_bus import crewai_event_bus
-from crewai.utilities.events.flow_events import (
-    FlowCreatedEvent,
-    FlowFinishedEvent,
-    FlowPlotEvent,
-    FlowStartedEvent,
-    MethodExecutionFailedEvent,
-    MethodExecutionFinishedEvent,
-    MethodExecutionStartedEvent,
-)
+from crewai.utilities.events.flow_events import (FlowCreatedEvent,
+                                                 FlowFinishedEvent,
+                                                 FlowPlotEvent,
+                                                 FlowStartedEvent,
+                                                 MethodExecutionFailedEvent,
+                                                 MethodExecutionFinishedEvent,
+                                                 MethodExecutionStartedEvent)
 from crewai.utilities.printer import Printer
+from pydantic import BaseModel, Field, ValidationError
 
 logger = logging.getLogger(__name__)
 

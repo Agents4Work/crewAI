@@ -1,8 +1,12 @@
 import subprocess
 
 import click
+<<<<<<< HEAD
 
 from crewai.cli.utils import get_crews
+=======
+from crewai.cli.utils import get_crew
+>>>>>>> 11ffc701 (Local changes to CrewAI submodule)
 
 
 def reset_memories_command(

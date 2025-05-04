@@ -2,10 +2,9 @@ import os
 from unittest.mock import patch
 
 import pytest
-from litellm.exceptions import BadRequestError
-
 from crewai.llm import LLM
 from crewai.utilities.llm_utils import create_llm
+from litellm.exceptions import BadRequestError
 
 
 def test_create_llm_with_llm_instance():

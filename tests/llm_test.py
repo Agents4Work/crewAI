@@ -2,17 +2,13 @@ import os
 from time import sleep
 from unittest.mock import MagicMock, patch
 
-import litellm
 import pytest
-from pydantic import BaseModel
-
-from crewai.agents.agent_builder.utilities.base_token_process import TokenProcess
+from crewai.agents.agent_builder.utilities.base_token_process import \
+    TokenProcess
 from crewai.llm import CONTEXT_WINDOW_USAGE_RATIO, LLM
-from crewai.utilities.events import (
-    LLMCallCompletedEvent,
-    LLMStreamChunkEvent,
-)
+from crewai.utilities.events import LLMCallCompletedEvent, LLMStreamChunkEvent
 from crewai.utilities.token_counter_callback import TokenCalcHandler
+from pydantic import BaseModel
 
 
 # TODO: This test fails without print statement, which makes me think that something is happening asynchronously that we need to eventually fix and dive deeper into at a later date
@@ -373,13 +369,12 @@ def get_weather_tool_schema():
         },
     }
 
+
 def test_context_window_exceeded_error_handling():
     """Test that litellm.ContextWindowExceededError is converted to LLMContextLengthExceededException."""
+    from crewai.utilities.exceptions.context_window_exceeding_exception import \
+        LLMContextLengthExceededException
     from litellm.exceptions import ContextWindowExceededError
-
-    from crewai.utilities.exceptions.context_window_exceeding_exception import (
-        LLMContextLengthExceededException,
-    )
 
     llm = LLM(model="gpt-4")
 
@@ -388,7 +383,7 @@ def test_context_window_exceeded_error_handling():
         mock_completion.side_effect = ContextWindowExceededError(
             "This model's maximum context length is 8192 tokens. However, your messages resulted in 10000 tokens.",
             model="gpt-4",
-            llm_provider="openai"
+            llm_provider="openai",
         )
 
         with pytest.raises(LLMContextLengthExceededException) as excinfo:
@@ -403,7 +398,7 @@ def test_context_window_exceeded_error_handling():
         mock_completion.side_effect = ContextWindowExceededError(
             "This model's maximum context length is 8192 tokens. However, your messages resulted in 10000 tokens.",
             model="gpt-4",
-            llm_provider="openai"
+            llm_provider="openai",
         )
 
         with pytest.raises(LLMContextLengthExceededException) as excinfo:

@@ -4,21 +4,16 @@ from typing import Dict, List, Optional
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
-from pydantic import BaseModel
-
 from crewai.llm import LLM
-from crewai.utilities.converter import (
-    Converter,
-    ConverterError,
-    convert_to_model,
-    convert_with_instructions,
-    create_converter,
-    generate_model_description,
-    get_conversion_instructions,
-    handle_partial_json,
-    validate_model,
-)
+from crewai.utilities.converter import (Converter, ConverterError,
+                                        convert_to_model,
+                                        convert_with_instructions,
+                                        create_converter,
+                                        generate_model_description,
+                                        get_conversion_instructions,
+                                        handle_partial_json, validate_model)
 from crewai.utilities.pydantic_schema_parser import PydanticSchemaParser
+from pydantic import BaseModel
 
 
 @pytest.fixture(scope="module")
@@ -446,7 +441,7 @@ def test_converter_error_handling():
     )
 
     with pytest.raises(ConverterError) as exc_info:
-        output = converter.to_pydantic()
+        converter.to_pydantic()
 
     assert "Failed to convert text into a Pydantic model" in str(exc_info.value)
 
@@ -580,7 +575,7 @@ def test_converter_with_ambiguous_input():
     )
 
     with pytest.raises(ConverterError) as exc_info:
-        output = converter.to_pydantic()
+        converter.to_pydantic()
 
     assert "failed to convert text into a pydantic model" in str(exc_info.value).lower()
 

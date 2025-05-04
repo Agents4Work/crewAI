@@ -1,12 +1,7 @@
 from typing import Any, Dict, Optional
 
-from crewai.memory import (
-    EntityMemory,
-    ExternalMemory,
-    LongTermMemory,
-    ShortTermMemory,
-    UserMemory,
-)
+from crewai.memory import (EntityMemory, ExternalMemory, LongTermMemory,
+                           ShortTermMemory, UserMemory)
 
 
 class ContextualMemory:

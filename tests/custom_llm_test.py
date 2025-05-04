@@ -1,8 +1,6 @@
 from typing import Any, Dict, List, Optional, Union
-from unittest.mock import Mock
 
 import pytest
-
 from crewai import Agent, Crew, Process, Task
 from crewai.llms.base_llm import BaseLLM
 from crewai.utilities.llm_utils import create_llm

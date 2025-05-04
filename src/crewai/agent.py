@@ -2,8 +2,6 @@ import shutil
 import subprocess
 from typing import Any, Dict, List, Literal, Optional, Sequence, Type, Union
 
-from pydantic import Field, InstanceOf, PrivateAttr, model_validator
-
 from crewai.agents import CacheHandler
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.agents.crew_agent_executor import CrewAgentExecutor
@@ -18,22 +16,19 @@ from crewai.task import Task
 from crewai.tools import BaseTool
 from crewai.tools.agent_tools.agent_tools import AgentTools
 from crewai.utilities import Converter, Prompts
-from crewai.utilities.agent_utils import (
-    get_tool_names,
-    parse_tools,
-    render_text_description_and_args,
-)
-from crewai.utilities.constants import TRAINED_AGENTS_DATA_FILE, TRAINING_DATA_FILE
+from crewai.utilities.agent_utils import (get_tool_names, parse_tools,
+                                          render_text_description_and_args)
+from crewai.utilities.constants import (TRAINED_AGENTS_DATA_FILE,
+                                        TRAINING_DATA_FILE)
 from crewai.utilities.converter import generate_model_description
-from crewai.utilities.events.agent_events import (
-    AgentExecutionCompletedEvent,
-    AgentExecutionErrorEvent,
-    AgentExecutionStartedEvent,
-)
+from crewai.utilities.events.agent_events import (AgentExecutionCompletedEvent,
+                                                  AgentExecutionErrorEvent,
+                                                  AgentExecutionStartedEvent)
 from crewai.utilities.events.crewai_event_bus import crewai_event_bus
 from crewai.utilities.llm_utils import create_llm
 from crewai.utilities.token_counter_callback import TokenCalcHandler
 from crewai.utilities.training_handler import CrewTrainingHandler
+from pydantic import Field, InstanceOf, PrivateAttr, model_validator
 
 
 class Agent(BaseAgent):
@@ -185,7 +180,7 @@ class Agent(BaseAgent):
         self,
         task: Task,
         context: Optional[str] = None,
-        tools: Optional[List[BaseTool]] = None
+        tools: Optional[List[BaseTool]] = None,
     ) -> str:
         """Execute a task with the agent.
 
@@ -288,12 +283,19 @@ class Agent(BaseAgent):
 
             # Determine execution method based on timeout setting
             if self.max_execution_time is not None:
-                if not isinstance(self.max_execution_time, int) or self.max_execution_time <= 0:
-                    raise ValueError("Max Execution time must be a positive integer greater than zero")
-                result = self._execute_with_timeout(task_prompt, task, self.max_execution_time)
+                if (
+                    not isinstance(self.max_execution_time, int)
+                    or self.max_execution_time <= 0
+                ):
+                    raise ValueError(
+                        "Max Execution time must be a positive integer greater than zero"
+                    )
+                result = self._execute_with_timeout(
+                    task_prompt, task, self.max_execution_time
+                )
             else:
                 result = self._execute_without_timeout(task_prompt, task)
-                
+
         except TimeoutError as e:
             # Propagate TimeoutError without retry
             crewai_event_bus.emit(
@@ -345,54 +347,46 @@ class Agent(BaseAgent):
         )
         return result
 
-    def _execute_with_timeout(
-        self,
-        task_prompt: str,
-        task: Task,
-        timeout: int
-    ) -> str:
+    def _execute_with_timeout(self, task_prompt: str, task: Task, timeout: int) -> str:
         """Execute a task with a timeout.
-        
+
         Args:
             task_prompt: The prompt to send to the agent.
             task: The task being executed.
             timeout: Maximum execution time in seconds.
-            
+
         Returns:
             The output of the agent.
-            
+
         Raises:
             TimeoutError: If execution exceeds the timeout.
             RuntimeError: If execution fails for other reasons.
         """
         import concurrent.futures
+
         with concurrent.futures.ThreadPoolExecutor() as executor:
             future = executor.submit(
-                self._execute_without_timeout,
-                task_prompt=task_prompt,
-                task=task
+                self._execute_without_timeout, task_prompt=task_prompt, task=task
             )
-            
+
             try:
                 return future.result(timeout=timeout)
             except concurrent.futures.TimeoutError:
                 future.cancel()
-                raise TimeoutError(f"Task '{task.description}' execution timed out after {timeout} seconds. Consider increasing max_execution_time or optimizing the task.")
+                raise TimeoutError(
+                    f"Task '{task.description}' execution timed out after {timeout} seconds. Consider increasing max_execution_time or optimizing the task."
+                )
             except Exception as e:
                 future.cancel()
                 raise RuntimeError(f"Task execution failed: {str(e)}")
 
-    def _execute_without_timeout(
-        self,
-        task_prompt: str,
-        task: Task
-    ) -> str:
+    def _execute_without_timeout(self, task_prompt: str, task: Task) -> str:
         """Execute a task without a timeout.
-        
+
         Args:
             task_prompt: The prompt to send to the agent.
             task: The task being executed.
-            
+
         Returns:
             The output of the agent.
         """

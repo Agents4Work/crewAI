@@ -1,8 +1,7 @@
 from typing import List, Optional
 
-from pydantic import Field
-
 from crewai.knowledge.source.base_knowledge_source import BaseKnowledgeSource
+from pydantic import Field
 
 
 class StringKnowledgeSource(BaseKnowledgeSource):

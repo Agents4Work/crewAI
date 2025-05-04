@@ -1,28 +1,22 @@
-from typing import Any, AsyncIterable, Dict, List, Optional
-
-from pydantic import Field, PrivateAttr
+from typing import Any, Dict, List, Optional
 
 from crewai.agents.agent_adapters.base_agent_adapter import BaseAgentAdapter
-from crewai.agents.agent_adapters.langgraph.langgraph_tool_adapter import (
-    LangGraphToolAdapter,
-)
-from crewai.agents.agent_adapters.langgraph.structured_output_converter import (
-    LangGraphConverterAdapter,
-)
+from crewai.agents.agent_adapters.langgraph.langgraph_tool_adapter import \
+    LangGraphToolAdapter
+from crewai.agents.agent_adapters.langgraph.structured_output_converter import \
+    LangGraphConverterAdapter
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.tools.agent_tools.agent_tools import AgentTools
 from crewai.tools.base_tool import BaseTool
 from crewai.utilities import Logger
 from crewai.utilities.converter import Converter
 from crewai.utilities.events import crewai_event_bus
-from crewai.utilities.events.agent_events import (
-    AgentExecutionCompletedEvent,
-    AgentExecutionErrorEvent,
-    AgentExecutionStartedEvent,
-)
+from crewai.utilities.events.agent_events import (AgentExecutionCompletedEvent,
+                                                  AgentExecutionErrorEvent,
+                                                  AgentExecutionStartedEvent)
+from pydantic import Field, PrivateAttr
 
 try:
-    from langchain_core.messages import ToolMessage
     from langgraph.checkpoint.memory import MemorySaver
     from langgraph.prebuilt import create_react_agent
 

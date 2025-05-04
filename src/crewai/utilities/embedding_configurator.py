@@ -47,9 +47,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _create_default_embedding_function():
-        from chromadb.utils.embedding_functions.openai_embedding_function import (
-            OpenAIEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.openai_embedding_function import \
+            OpenAIEmbeddingFunction
 
         return OpenAIEmbeddingFunction(
             api_key=os.getenv("OPENAI_API_KEY"), model_name="text-embedding-3-small"
@@ -57,9 +56,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _configure_openai(config, model_name):
-        from chromadb.utils.embedding_functions.openai_embedding_function import (
-            OpenAIEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.openai_embedding_function import \
+            OpenAIEmbeddingFunction
 
         return OpenAIEmbeddingFunction(
             api_key=config.get("api_key") or os.getenv("OPENAI_API_KEY"),
@@ -75,9 +73,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _configure_azure(config, model_name):
-        from chromadb.utils.embedding_functions.openai_embedding_function import (
-            OpenAIEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.openai_embedding_function import \
+            OpenAIEmbeddingFunction
 
         return OpenAIEmbeddingFunction(
             api_key=config.get("api_key"),
@@ -93,9 +90,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _configure_ollama(config, model_name):
-        from chromadb.utils.embedding_functions.ollama_embedding_function import (
-            OllamaEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.ollama_embedding_function import \
+            OllamaEmbeddingFunction
 
         return OllamaEmbeddingFunction(
             url=config.get("url", "http://localhost:11434/api/embeddings"),
@@ -104,9 +100,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _configure_vertexai(config, model_name):
-        from chromadb.utils.embedding_functions.google_embedding_function import (
-            GoogleVertexEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.google_embedding_function import \
+            GoogleVertexEmbeddingFunction
 
         return GoogleVertexEmbeddingFunction(
             model_name=model_name,
@@ -117,9 +112,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _configure_google(config, model_name):
-        from chromadb.utils.embedding_functions.google_embedding_function import (
-            GoogleGenerativeAiEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.google_embedding_function import \
+            GoogleGenerativeAiEmbeddingFunction
 
         return GoogleGenerativeAiEmbeddingFunction(
             model_name=model_name,
@@ -129,9 +123,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _configure_cohere(config, model_name):
-        from chromadb.utils.embedding_functions.cohere_embedding_function import (
-            CohereEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.cohere_embedding_function import \
+            CohereEmbeddingFunction
 
         return CohereEmbeddingFunction(
             model_name=model_name,
@@ -140,9 +133,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _configure_voyageai(config, model_name):
-        from chromadb.utils.embedding_functions.voyageai_embedding_function import (
-            VoyageAIEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.voyageai_embedding_function import \
+            VoyageAIEmbeddingFunction
 
         return VoyageAIEmbeddingFunction(
             model_name=model_name,
@@ -151,9 +143,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _configure_bedrock(config, model_name):
-        from chromadb.utils.embedding_functions.amazon_bedrock_embedding_function import (
-            AmazonBedrockEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.amazon_bedrock_embedding_function import \
+            AmazonBedrockEmbeddingFunction
 
         # Allow custom model_name override with backwards compatibility
         kwargs = {"session": config.get("session")}
@@ -163,9 +154,8 @@ class EmbeddingConfigurator:
 
     @staticmethod
     def _configure_huggingface(config, model_name):
-        from chromadb.utils.embedding_functions.huggingface_embedding_function import (
-            HuggingFaceEmbeddingServer,
-        )
+        from chromadb.utils.embedding_functions.huggingface_embedding_function import \
+            HuggingFaceEmbeddingServer
 
         return HuggingFaceEmbeddingServer(
             url=config.get("api_url"),
@@ -176,7 +166,8 @@ class EmbeddingConfigurator:
         try:
             import ibm_watsonx_ai.foundation_models as watson_models
             from ibm_watsonx_ai import Credentials
-            from ibm_watsonx_ai.metanames import EmbedTextParamsMetaNames as EmbedParams
+            from ibm_watsonx_ai.metanames import \
+                EmbedTextParamsMetaNames as EmbedParams
         except ImportError as e:
             raise ImportError(
                 "IBM Watson dependencies are not installed. Please install them to use Watson embedding."

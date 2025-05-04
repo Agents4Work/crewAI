@@ -3,6 +3,7 @@ from unittest import mock
 
 import pytest
 from click.testing import CliRunner
+<<<<<<< HEAD
 
 from crewai.cli.cli import (
     deploy_create,
@@ -19,6 +20,12 @@ from crewai.cli.cli import (
     version,
 )
 from crewai.crew import Crew
+=======
+from crewai.cli.cli import (deploy_create, deploy_list, deploy_logs,
+                            deploy_push, deploy_remove, deply_status,
+                            flow_add_crew, reset_memories, signup, test, train,
+                            version)
+>>>>>>> 11ffc701 (Local changes to CrewAI submodule)
 
 
 @pytest.fixture

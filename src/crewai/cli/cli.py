@@ -1,16 +1,13 @@
-import os
 from importlib.metadata import version as get_version
-from typing import Optional, Tuple
+from typing import Optional
 
 import click
-
 from crewai.cli.add_crew_to_flow import add_crew_to_flow
 from crewai.cli.create_crew import create_crew
 from crewai.cli.create_flow import create_flow
 from crewai.cli.crew_chat import run_chat
-from crewai.memory.storage.kickoff_task_outputs_storage import (
-    KickoffTaskOutputsSQLiteStorage,
-)
+from crewai.memory.storage.kickoff_task_outputs_storage import \
+    KickoffTaskOutputsSQLiteStorage
 
 from .authentication.main import AuthenticationCommand
 from .deploy.main import DeployCommand
@@ -228,13 +225,11 @@ def login():
 @crewai.group()
 def deploy():
     """Deploy the Crew CLI group."""
-    pass
 
 
 @crewai.group()
 def tool():
     """Tool Repository related commands."""
-    pass
 
 
 @deploy.command(name="create")
@@ -318,7 +313,6 @@ def tool_publish(is_public: bool, force: bool):
 @crewai.group()
 def flow():
     """Flow related commands."""
-    pass
 
 
 @flow.command(name="kickoff")

@@ -7,7 +7,6 @@ import uuid
 from typing import Any, Dict, List, Optional
 
 from chromadb.api import ClientAPI
-
 from crewai.memory.storage.base_rag_storage import BaseRAGStorage
 from crewai.utilities import EmbeddingConfigurator
 from crewai.utilities.constants import MAX_FILE_NAME_LENGTH
@@ -165,9 +164,8 @@ class RAGStorage(BaseRAGStorage):
                 )
 
     def _create_default_embedding_function(self):
-        from chromadb.utils.embedding_functions.openai_embedding_function import (
-            OpenAIEmbeddingFunction,
-        )
+        from chromadb.utils.embedding_functions.openai_embedding_function import \
+            OpenAIEmbeddingFunction
 
         return OpenAIEmbeddingFunction(
             api_key=os.getenv("OPENAI_API_KEY"), model_name="text-embedding-3-small"

@@ -1,10 +1,8 @@
 from typing import Optional
 
-from crewai.utilities.events import (
-    CrewKickoffCompletedEvent,
-    ToolUsageErrorEvent,
-    ToolUsageStartedEvent,
-)
+from crewai.utilities.events import (CrewKickoffCompletedEvent,
+                                     ToolUsageErrorEvent,
+                                     ToolUsageStartedEvent)
 from crewai.utilities.events.base_event_listener import BaseEventListener
 from crewai.utilities.events.crew_events import CrewKickoffStartedEvent
 from crewai.utilities.events.task_events import TaskEvaluationEvent

@@ -18,18 +18,6 @@ from typing import (
     cast,
 )
 
-from pydantic import (
-    UUID4,
-    BaseModel,
-    Field,
-    InstanceOf,
-    Json,
-    PrivateAttr,
-    field_validator,
-    model_validator,
-)
-from pydantic_core import PydanticCustomError
-
 from crewai.agent import Agent
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.agents.cache import CacheHandler
@@ -55,27 +43,27 @@ from crewai.utilities import I18N, FileHandler, Logger, RPMController
 from crewai.utilities.constants import TRAINING_DATA_FILE
 from crewai.utilities.evaluators.crew_evaluator_handler import CrewEvaluator
 from crewai.utilities.evaluators.task_evaluator import TaskEvaluator
-from crewai.utilities.events.crew_events import (
-    CrewKickoffCompletedEvent,
-    CrewKickoffFailedEvent,
-    CrewKickoffStartedEvent,
-    CrewTestCompletedEvent,
-    CrewTestFailedEvent,
-    CrewTestStartedEvent,
-    CrewTrainCompletedEvent,
-    CrewTrainFailedEvent,
-    CrewTrainStartedEvent,
-)
+from crewai.utilities.events.crew_events import (CrewKickoffCompletedEvent,
+                                                 CrewKickoffFailedEvent,
+                                                 CrewKickoffStartedEvent,
+                                                 CrewTestCompletedEvent,
+                                                 CrewTestFailedEvent,
+                                                 CrewTestStartedEvent,
+                                                 CrewTrainCompletedEvent,
+                                                 CrewTrainFailedEvent,
+                                                 CrewTrainStartedEvent)
 from crewai.utilities.events.crewai_event_bus import crewai_event_bus
 from crewai.utilities.events.event_listener import EventListener
 from crewai.utilities.formatter import (
-    aggregate_raw_outputs_from_task_outputs,
-    aggregate_raw_outputs_from_tasks,
-)
+    aggregate_raw_outputs_from_task_outputs, aggregate_raw_outputs_from_tasks)
 from crewai.utilities.llm_utils import create_llm
 from crewai.utilities.planning_handler import CrewPlanner
-from crewai.utilities.task_output_storage_handler import TaskOutputStorageHandler
+from crewai.utilities.task_output_storage_handler import \
+    TaskOutputStorageHandler
 from crewai.utilities.training_handler import CrewTrainingHandler
+from pydantic import (UUID4, BaseModel, Field, InstanceOf, Json, PrivateAttr,
+                      field_validator, model_validator)
+from pydantic_core import PydanticCustomError
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 

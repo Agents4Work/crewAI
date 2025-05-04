@@ -1,10 +1,9 @@
 import os
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel, ConfigDict, Field
-
 from crewai.knowledge.source.base_knowledge_source import BaseKnowledgeSource
 from crewai.knowledge.storage.knowledge_storage import KnowledgeStorage
+from pydantic import BaseModel, ConfigDict, Field
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"  # removes logging from fastembed
 

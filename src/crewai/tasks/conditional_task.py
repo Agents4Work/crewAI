@@ -1,10 +1,9 @@
 from typing import Any, Callable
 
-from pydantic import Field
-
 from crewai.task import Task
 from crewai.tasks.output_format import OutputFormat
 from crewai.tasks.task_output import TaskOutput
+from pydantic import Field
 
 
 class ConditionalTask(Task):

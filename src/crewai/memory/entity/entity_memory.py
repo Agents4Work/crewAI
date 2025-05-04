@@ -1,10 +1,9 @@
 from typing import Optional
 
-from pydantic import PrivateAttr
-
 from crewai.memory.entity.entity_memory_item import EntityMemoryItem
 from crewai.memory.memory import Memory
 from crewai.memory.storage.rag_storage import RAGStorage
+from pydantic import PrivateAttr
 
 
 class EntityMemory(Memory):

@@ -2,9 +2,8 @@ from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional
 
 import numpy as np
-from pydantic import BaseModel, ConfigDict, Field
-
 from crewai.knowledge.storage.knowledge_storage import KnowledgeStorage
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class BaseKnowledgeSource(BaseModel, ABC):
@@ -23,12 +22,10 @@ class BaseKnowledgeSource(BaseModel, ABC):
     @abstractmethod
     def validate_content(self) -> Any:
         """Load and preprocess content from the source."""
-        pass
 
     @abstractmethod
     def add(self) -> None:
         """Process content, chunk it, compute embeddings, and save them."""
-        pass
 
     def get_embeddings(self) -> List[np.ndarray]:
         """Return the list of embeddings for the chunks."""

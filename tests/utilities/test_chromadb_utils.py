@@ -1,14 +1,8 @@
 import unittest
-from typing import Any, Dict, List, Union
 
-import pytest
-
-from crewai.utilities.chromadb import (
-    MAX_COLLECTION_LENGTH,
-    MIN_COLLECTION_LENGTH,
-    is_ipv4_pattern,
-    sanitize_collection_name,
-)
+from crewai.utilities.chromadb import (MAX_COLLECTION_LENGTH,
+                                       MIN_COLLECTION_LENGTH, is_ipv4_pattern,
+                                       sanitize_collection_name)
 
 
 class TestChromadbUtils(unittest.TestCase):

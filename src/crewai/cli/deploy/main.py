@@ -1,10 +1,9 @@
 from typing import Any, Dict, List, Optional
 
-from rich.console import Console
-
 from crewai.cli import git
 from crewai.cli.command import BaseCommand, PlusAPIMixin
 from crewai.cli.utils import fetch_and_json_env_file, get_project_name
+from rich.console import Console
 
 console = Console()
 

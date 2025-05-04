@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import sys
 import warnings
-
 from datetime import datetime
 
 from {{folder_name}}.crew import {{crew_name}}

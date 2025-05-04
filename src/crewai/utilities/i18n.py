@@ -6,8 +6,10 @@ from pydantic import BaseModel, Field, PrivateAttr, model_validator
 
 """Internationalization support for CrewAI prompts and messages."""
 
+
 class I18N(BaseModel):
     """Handles loading and retrieving internationalized prompts."""
+
     _prompts: Dict[str, Dict[str, str]] = PrivateAttr()
     prompt_file: Optional[str] = Field(
         default=None,
@@ -49,5 +51,5 @@ class I18N(BaseModel):
     def retrieve(self, kind, key) -> str:
         try:
             return self._prompts[kind][key]
-        except Exception as _:
+        except Exception:
             raise Exception(f"Prompt for '{kind}':'{key}'  not found.")

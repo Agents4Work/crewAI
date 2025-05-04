@@ -1,6 +1,7 @@
 import json
 
-from crewai.agents.agent_adapters.base_converter_adapter import BaseConverterAdapter
+from crewai.agents.agent_adapters.base_converter_adapter import \
+    BaseConverterAdapter
 from crewai.utilities.converter import generate_model_description
 
 

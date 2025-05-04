@@ -4,17 +4,13 @@ import asyncio
 from datetime import datetime
 
 import pytest
-from pydantic import BaseModel
-
 from crewai.flow.flow import Flow, and_, listen, or_, router, start
-from crewai.utilities.events import (
-    FlowFinishedEvent,
-    FlowStartedEvent,
-    MethodExecutionFinishedEvent,
-    MethodExecutionStartedEvent,
-    crewai_event_bus,
-)
+from crewai.utilities.events import (FlowFinishedEvent, FlowStartedEvent,
+                                     MethodExecutionFinishedEvent,
+                                     MethodExecutionStartedEvent,
+                                     crewai_event_bus)
 from crewai.utilities.events.flow_events import FlowPlotEvent
+from pydantic import BaseModel
 
 
 def test_simple_sequential_flow():

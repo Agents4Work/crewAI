@@ -2,12 +2,11 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Dict, List, Optional, Union
 
-from pydantic import Field, field_validator
-
 from crewai.knowledge.source.base_knowledge_source import BaseKnowledgeSource
 from crewai.knowledge.storage.knowledge_storage import KnowledgeStorage
 from crewai.utilities.constants import KNOWLEDGE_DIRECTORY
 from crewai.utilities.logger import Logger
+from pydantic import Field, field_validator
 
 
 class BaseFileKnowledgeSource(BaseKnowledgeSource, ABC):
@@ -48,7 +47,6 @@ class BaseFileKnowledgeSource(BaseKnowledgeSource, ABC):
     @abstractmethod
     def load_content(self) -> Dict[Path, str]:
         """Load and preprocess file content. Should be overridden by subclasses. Assume that the file path is relative to the project root in the knowledge directory."""
-        pass
 
     def validate_content(self):
         """Validate the paths."""
@@ -96,9 +94,7 @@ class BaseFileKnowledgeSource(BaseKnowledgeSource, ABC):
         path_list: List[Union[Path, str]] = (
             [self.file_paths]
             if isinstance(self.file_paths, (str, Path))
-            else list(self.file_paths)
-            if isinstance(self.file_paths, list)
-            else []
+            else list(self.file_paths) if isinstance(self.file_paths, list) else []
         )
 
         if not path_list:

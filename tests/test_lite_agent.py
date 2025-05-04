@@ -1,10 +1,7 @@
-import asyncio
 from typing import cast
 from unittest.mock import Mock
 
 import pytest
-from pydantic import BaseModel, Field
-
 from crewai import LLM, Agent
 from crewai.flow import Flow, start
 from crewai.lite_agent import LiteAgent, LiteAgentOutput
@@ -12,6 +9,7 @@ from crewai.tools import BaseTool
 from crewai.utilities.events import crewai_event_bus
 from crewai.utilities.events.agent_events import LiteAgentExecutionStartedEvent
 from crewai.utilities.events.tool_usage_events import ToolUsageStartedEvent
+from pydantic import BaseModel, Field
 
 
 # A simple test tool

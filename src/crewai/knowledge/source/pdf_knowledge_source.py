@@ -1,7 +1,8 @@
 from pathlib import Path
 from typing import Dict, List
 
-from crewai.knowledge.source.base_file_knowledge_source import BaseFileKnowledgeSource
+from crewai.knowledge.source.base_file_knowledge_source import \
+    BaseFileKnowledgeSource
 
 
 class PDFKnowledgeSource(BaseFileKnowledgeSource):

@@ -1,53 +1,35 @@
 from io import StringIO
 from typing import Any, Dict
 
-from pydantic import Field, PrivateAttr
-
 from crewai.task import Task
 from crewai.telemetry.telemetry import Telemetry
 from crewai.utilities import Logger
 from crewai.utilities.constants import EMITTER_COLOR
 from crewai.utilities.events.base_event_listener import BaseEventListener
-from crewai.utilities.events.llm_events import (
-    LLMCallCompletedEvent,
-    LLMCallFailedEvent,
-    LLMCallStartedEvent,
-    LLMStreamChunkEvent,
-)
+from crewai.utilities.events.llm_events import (LLMCallCompletedEvent,
+                                                LLMCallFailedEvent,
+                                                LLMCallStartedEvent,
+                                                LLMStreamChunkEvent)
 from crewai.utilities.events.utils.console_formatter import ConsoleFormatter
+from pydantic import Field, PrivateAttr
 
-from .agent_events import (
-    AgentExecutionCompletedEvent,
-    AgentExecutionStartedEvent,
-    LiteAgentExecutionCompletedEvent,
-    LiteAgentExecutionErrorEvent,
-    LiteAgentExecutionStartedEvent,
-)
-from .crew_events import (
-    CrewKickoffCompletedEvent,
-    CrewKickoffFailedEvent,
-    CrewKickoffStartedEvent,
-    CrewTestCompletedEvent,
-    CrewTestFailedEvent,
-    CrewTestStartedEvent,
-    CrewTrainCompletedEvent,
-    CrewTrainFailedEvent,
-    CrewTrainStartedEvent,
-)
-from .flow_events import (
-    FlowCreatedEvent,
-    FlowFinishedEvent,
-    FlowStartedEvent,
-    MethodExecutionFailedEvent,
-    MethodExecutionFinishedEvent,
-    MethodExecutionStartedEvent,
-)
+from .agent_events import (AgentExecutionCompletedEvent,
+                           AgentExecutionStartedEvent,
+                           LiteAgentExecutionCompletedEvent,
+                           LiteAgentExecutionErrorEvent,
+                           LiteAgentExecutionStartedEvent)
+from .crew_events import (CrewKickoffCompletedEvent, CrewKickoffFailedEvent,
+                          CrewKickoffStartedEvent, CrewTestCompletedEvent,
+                          CrewTestFailedEvent, CrewTestStartedEvent,
+                          CrewTrainCompletedEvent, CrewTrainFailedEvent,
+                          CrewTrainStartedEvent)
+from .flow_events import (FlowCreatedEvent, FlowFinishedEvent,
+                          FlowStartedEvent, MethodExecutionFailedEvent,
+                          MethodExecutionFinishedEvent,
+                          MethodExecutionStartedEvent)
 from .task_events import TaskCompletedEvent, TaskFailedEvent, TaskStartedEvent
-from .tool_usage_events import (
-    ToolUsageErrorEvent,
-    ToolUsageFinishedEvent,
-    ToolUsageStartedEvent,
-)
+from .tool_usage_events import (ToolUsageErrorEvent, ToolUsageFinishedEvent,
+                                ToolUsageStartedEvent)
 
 
 class EventListener(BaseEventListener):

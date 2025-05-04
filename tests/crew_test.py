@@ -2,23 +2,24 @@
 
 import hashlib
 import json
-import os
-import tempfile
 from concurrent.futures import Future
 from unittest import mock
 from unittest.mock import MagicMock, patch
 
 import pydantic_core
 import pytest
-
 from crewai.agent import Agent
 from crewai.agents import CacheHandler
 from crewai.agents.cache import CacheHandler
-from crewai.agents.crew_agent_executor import CrewAgentExecutor
 from crewai.crew import Crew
 from crewai.crews.crew_output import CrewOutput
+<<<<<<< HEAD
 from crewai.flow import Flow, listen, start
 from crewai.knowledge.source.string_knowledge_source import StringKnowledgeSource
+=======
+from crewai.knowledge.source.string_knowledge_source import \
+    StringKnowledgeSource
+>>>>>>> 11ffc701 (Local changes to CrewAI submodule)
 from crewai.llm import LLM
 from crewai.memory.contextual.contextual_memory import ContextualMemory
 from crewai.memory.long_term.long_term_memory import LongTermMemory
@@ -30,18 +31,14 @@ from crewai.tasks.output_format import OutputFormat
 from crewai.tasks.task_output import TaskOutput
 from crewai.types.usage_metrics import UsageMetrics
 from crewai.utilities import Logger
-from crewai.utilities.events import (
-    CrewTrainCompletedEvent,
-    CrewTrainStartedEvent,
-    crewai_event_bus,
-)
-from crewai.utilities.events.crew_events import (
-    CrewTestCompletedEvent,
-    CrewTestStartedEvent,
-)
+from crewai.utilities.events import (CrewTrainCompletedEvent,
+                                     CrewTrainStartedEvent, crewai_event_bus)
+from crewai.utilities.events.crew_events import (CrewTestCompletedEvent,
+                                                 CrewTestStartedEvent)
 from crewai.utilities.events.event_listener import EventListener
 from crewai.utilities.rpm_controller import RPMController
-from crewai.utilities.task_output_storage_handler import TaskOutputStorageHandler
+from crewai.utilities.task_output_storage_handler import \
+    TaskOutputStorageHandler
 
 
 @pytest.fixture
@@ -568,9 +565,8 @@ def test_crew_with_delegating_agents(ceo, writer):
 def test_crew_with_delegating_agents_should_not_override_task_tools(ceo, writer):
     from typing import Type
 
-    from pydantic import BaseModel, Field
-
     from crewai.tools import BaseTool
+    from pydantic import BaseModel, Field
 
     class TestToolInput(BaseModel):
         """Input schema for TestTool."""
@@ -630,9 +626,8 @@ def test_crew_with_delegating_agents_should_not_override_task_tools(ceo, writer)
 def test_crew_with_delegating_agents_should_not_override_agent_tools(ceo, writer):
     from typing import Type
 
-    from pydantic import BaseModel, Field
-
     from crewai.tools import BaseTool
+    from pydantic import BaseModel, Field
 
     class TestToolInput(BaseModel):
         """Input schema for TestTool."""
@@ -694,9 +689,8 @@ def test_crew_with_delegating_agents_should_not_override_agent_tools(ceo, writer
 def test_task_tools_override_agent_tools(researcher):
     from typing import Type
 
-    from pydantic import BaseModel, Field
-
     from crewai.tools import BaseTool
+    from pydantic import BaseModel, Field
 
     class TestToolInput(BaseModel):
         """Input schema for TestTool."""
@@ -752,9 +746,8 @@ def test_task_tools_override_agent_tools_with_allow_delegation(researcher, write
     """
     from typing import Type
 
-    from pydantic import BaseModel, Field
-
     from crewai.tools import BaseTool
+    from pydantic import BaseModel, Field
 
     class TestToolInput(BaseModel):
         query: str = Field(..., description="Query to process")
@@ -3675,10 +3668,9 @@ def test_task_tools_preserve_code_execution_tools():
     """
     from typing import Type
 
+    from crewai.tools import BaseTool
     from crewai_tools import CodeInterpreterTool
     from pydantic import BaseModel, Field
-
-    from crewai.tools import BaseTool
 
     class TestToolInput(BaseModel):
         """Input schema for TestTool."""

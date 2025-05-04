@@ -4,9 +4,8 @@ import inspect
 import textwrap
 from typing import Any, Callable, Optional, Union, get_type_hints
 
-from pydantic import BaseModel, Field, create_model
-
 from crewai.utilities.logger import Logger
+from pydantic import BaseModel, Field, create_model
 
 
 class CrewStructuredTool:

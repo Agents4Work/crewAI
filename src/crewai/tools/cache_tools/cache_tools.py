@@ -1,7 +1,6 @@
-from pydantic import BaseModel, Field
-
 from crewai.agents.cache import CacheHandler
 from crewai.tools.structured_tool import CrewStructuredTool
+from pydantic import BaseModel, Field
 
 
 class CacheTools(BaseModel):

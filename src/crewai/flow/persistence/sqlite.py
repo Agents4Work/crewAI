@@ -8,9 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Optional, Union
 
-from pydantic import BaseModel
-
 from crewai.flow.persistence.base import FlowPersistence
+from pydantic import BaseModel
 
 
 class SQLiteFlowPersistence(FlowPersistence):

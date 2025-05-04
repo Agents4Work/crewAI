@@ -8,26 +8,19 @@ from textwrap import dedent
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Union
 
 import json5
-from json_repair import repair_json
-
 from crewai.agents.tools_handler import ToolsHandler
 from crewai.task import Task
 from crewai.telemetry import Telemetry
 from crewai.tools.structured_tool import CrewStructuredTool
 from crewai.tools.tool_calling import InstructorToolCalling, ToolCalling
 from crewai.utilities import I18N, Converter, Printer
-from crewai.utilities.agent_utils import (
-    get_tool_names,
-    render_text_description_and_args,
-)
+from crewai.utilities.agent_utils import (get_tool_names,
+                                          render_text_description_and_args)
 from crewai.utilities.events.crewai_event_bus import crewai_event_bus
 from crewai.utilities.events.tool_usage_events import (
-    ToolSelectionErrorEvent,
-    ToolUsageErrorEvent,
-    ToolUsageFinishedEvent,
-    ToolUsageStartedEvent,
-    ToolValidateInputErrorEvent,
-)
+    ToolSelectionErrorEvent, ToolUsageErrorEvent, ToolUsageFinishedEvent,
+    ToolUsageStartedEvent, ToolValidateInputErrorEvent)
+from json_repair import repair_json
 
 if TYPE_CHECKING:
     from crewai.agents.agent_builder.base_agent import BaseAgent
@@ -179,8 +172,8 @@ class ToolUsage:
             if self.agent.fingerprint:
                 event_data.update(self.agent.fingerprint)
 
-            crewai_event_bus.emit(self,ToolUsageStartedEvent(**event_data))
-            
+            crewai_event_bus.emit(self, ToolUsageStartedEvent(**event_data))
+
         started_at = time.time()
         from_cache = False
         result = None  # type: ignore

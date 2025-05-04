@@ -1,10 +1,9 @@
 from typing import Any, Dict, Optional
 
-from pydantic import PrivateAttr
-
 from crewai.memory.memory import Memory
 from crewai.memory.short_term.short_term_memory_item import ShortTermMemoryItem
 from crewai.memory.storage.rag_storage import RAGStorage
+from pydantic import PrivateAttr
 
 
 class ShortTermMemory(Memory):

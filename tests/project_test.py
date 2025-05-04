@@ -2,20 +2,12 @@ from typing import List
 from unittest.mock import patch
 
 import pytest
-
 from crewai.agent import Agent
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.crew import Crew
 from crewai.llm import LLM
-from crewai.project import (
-    CrewBase,
-    after_kickoff,
-    agent,
-    before_kickoff,
-    crew,
-    llm,
-    task,
-)
+from crewai.project import (CrewBase, after_kickoff, agent, before_kickoff,
+                            crew, llm, task)
 from crewai.task import Task
 
 

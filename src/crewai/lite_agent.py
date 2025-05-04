@@ -1,57 +1,53 @@
 import asyncio
 import uuid
-from datetime import datetime
 from typing import Any, Callable, Dict, List, Optional, Type, Union, cast
 
-from pydantic import BaseModel, Field, InstanceOf, PrivateAttr, model_validator
-
 from crewai.agents.agent_builder.base_agent import BaseAgent
-from crewai.agents.agent_builder.utilities.base_token_process import TokenProcess
+from crewai.agents.agent_builder.utilities.base_token_process import \
+    TokenProcess
 from crewai.agents.cache import CacheHandler
+<<<<<<< HEAD
 from crewai.agents.parser import (
     AgentAction,
     AgentFinish,
     OutputParserException,
 )
 from crewai.flow.flow_trackable import FlowTrackable
+=======
+from crewai.agents.parser import (AgentAction, AgentFinish,
+                                  OutputParserException)
+>>>>>>> 11ffc701 (Local changes to CrewAI submodule)
 from crewai.llm import LLM
 from crewai.tools.base_tool import BaseTool
 from crewai.tools.structured_tool import CrewStructuredTool
 from crewai.utilities import I18N
-from crewai.utilities.agent_utils import (
-    enforce_rpm_limit,
-    format_message_for_llm,
-    get_llm_response,
-    get_tool_names,
-    handle_agent_action_core,
-    handle_context_length,
-    handle_max_iterations_exceeded,
-    handle_output_parser_exception,
-    handle_unknown_error,
-    has_reached_max_iterations,
-    is_context_length_exceeded,
-    parse_tools,
-    process_llm_response,
-    render_text_description_and_args,
-    show_agent_logs,
-)
-from crewai.utilities.converter import convert_to_model, generate_model_description
+from crewai.utilities.agent_utils import (enforce_rpm_limit,
+                                          format_message_for_llm,
+                                          get_llm_response, get_tool_names,
+                                          handle_agent_action_core,
+                                          handle_context_length,
+                                          handle_max_iterations_exceeded,
+                                          handle_output_parser_exception,
+                                          handle_unknown_error,
+                                          has_reached_max_iterations,
+                                          is_context_length_exceeded,
+                                          parse_tools, process_llm_response,
+                                          render_text_description_and_args,
+                                          show_agent_logs)
+from crewai.utilities.converter import generate_model_description
 from crewai.utilities.events.agent_events import (
-    LiteAgentExecutionCompletedEvent,
-    LiteAgentExecutionErrorEvent,
-    LiteAgentExecutionStartedEvent,
-)
+    LiteAgentExecutionCompletedEvent, LiteAgentExecutionErrorEvent,
+    LiteAgentExecutionStartedEvent)
 from crewai.utilities.events.crewai_event_bus import crewai_event_bus
-from crewai.utilities.events.llm_events import (
-    LLMCallCompletedEvent,
-    LLMCallFailedEvent,
-    LLMCallStartedEvent,
-    LLMCallType,
-)
+from crewai.utilities.events.llm_events import (LLMCallCompletedEvent,
+                                                LLMCallFailedEvent,
+                                                LLMCallStartedEvent,
+                                                LLMCallType)
 from crewai.utilities.llm_utils import create_llm
 from crewai.utilities.printer import Printer
 from crewai.utilities.token_counter_callback import TokenCalcHandler
 from crewai.utilities.tool_utils import execute_tool_and_check_finality
+from pydantic import BaseModel, Field, InstanceOf, PrivateAttr, model_validator
 
 
 class LiteAgentOutput(BaseModel):

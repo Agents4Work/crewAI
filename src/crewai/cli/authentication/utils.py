@@ -5,10 +5,8 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Optional
 
-from auth0.authentication.token_verifier import (
-    AsymmetricSignatureVerifier,
-    TokenVerifier,
-)
+from auth0.authentication.token_verifier import (AsymmetricSignatureVerifier,
+                                                 TokenVerifier)
 from cryptography.fernet import Fernet
 
 from .constants import AUTH0_CLIENT_ID, AUTH0_DOMAIN

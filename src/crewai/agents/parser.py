@@ -1,9 +1,8 @@
 import re
 from typing import Any, Optional, Union
 
-from json_repair import repair_json
-
 from crewai.utilities import I18N
+from json_repair import repair_json
 
 FINAL_ANSWER_ACTION = "Final Answer:"
 MISSING_ACTION_AFTER_THOUGHT_ERROR_MESSAGE = "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n"

@@ -1,8 +1,7 @@
 from datetime import datetime
 
-from pydantic import BaseModel, Field, PrivateAttr
-
 from crewai.utilities.printer import Printer
+from pydantic import BaseModel, Field, PrivateAttr
 
 
 class Logger(BaseModel):

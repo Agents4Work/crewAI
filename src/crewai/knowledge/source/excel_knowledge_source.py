@@ -1,12 +1,10 @@
 from pathlib import Path
-from typing import Dict, Iterator, List, Optional, Union
-from urllib.parse import urlparse
-
-from pydantic import Field, field_validator
+from typing import Dict, List, Optional, Union
 
 from crewai.knowledge.source.base_knowledge_source import BaseKnowledgeSource
 from crewai.utilities.constants import KNOWLEDGE_DIRECTORY
 from crewai.utilities.logger import Logger
+from pydantic import Field, field_validator
 
 
 class ExcelKnowledgeSource(BaseKnowledgeSource):
@@ -59,9 +57,7 @@ class ExcelKnowledgeSource(BaseKnowledgeSource):
         path_list: List[Union[Path, str]] = (
             [self.file_paths]
             if isinstance(self.file_paths, (str, Path))
-            else list(self.file_paths)
-            if isinstance(self.file_paths, list)
-            else []
+            else list(self.file_paths) if isinstance(self.file_paths, list) else []
         )
 
         if not path_list:
